@@ -3,6 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./login/LoginPage";
 import MainMenu from "./main-menu/MainMenu";
 import PillarDetails from "./pillar-details/PillarDetails";
+import BuildingsPage from "./my-buildings/BuildingsPage";
+import ProcessPage from "./do-process/ProcessPage";
+import EvaluationsPage from "./my-evaluations/EvaluationsPage";
 
 const isAuthenticated = () => {
   return !!localStorage.getItem("token");
@@ -29,6 +32,20 @@ const App = () => {
       <Route
         path="/details"
         element={<ProtectedRoute element={PillarDetails} />}
+      />
+      <Route
+        path="/buildings"
+        element={<ProtectedRoute element={BuildingsPage} />}
+      />
+
+      <Route
+        path="/process"
+        element={<ProtectedRoute element={ProcessPage} />}
+      />
+
+      <Route
+        path="/evaluations"
+        element={<ProtectedRoute element={EvaluationsPage} />}
       />
     </Routes>
   );

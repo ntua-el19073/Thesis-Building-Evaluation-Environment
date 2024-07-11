@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function AddBuldingWindow({ onClose, addBuilding }) {
+export default function EditBuildingWindow({
+  building,
+  refreshBuildings,
+  onClose,
+}) {
+  console.log(building);
   const [formData, setFormData] = useState({
-    name: "",
-    country: "",
-    location: "",
-    type: "",
-    yearConstructed: 0,
-    floor: 0,
-    area: 0,
+    id: building.id,
+    name: building.name,
+    country: building.country,
+    location: building.location,
+    type: building.type,
+    yearConstructed: building.yearConstructed,
+    floor: building.floor,
+    area: building.area,
   });
 
   const handleInputChange = (e) => {
@@ -27,73 +33,86 @@ export default function AddBuldingWindow({ onClose, addBuilding }) {
       ownerEmail: userEmail,
     };
     try {
-      const response = await axios.post(
-        "http://localhost:8080/beeapp/api/buildings/add",
-
+      const response = await axios.put(
+        `http://localhost:8080/beeapp/api/buildings/update`,
         formDataWithEmail
       );
       // Update local state with the new building data
-      addBuilding(response.data.building);
-      console.log(response.data.message);
-      onClose(); // Hide the add form after successful submission
+      console.log(response.data);
     } catch (error) {
-      console.error("Error adding new building:", error);
+      console.error("Error editing building:", error);
     }
+    refreshBuildings();
+    onClose(); // Hide the add form after successful submission
   };
 
   return (
     <div>
-      <h3>Add Building form:</h3>
-      <form className="add-building-form" onSubmit={handleSubmit}>
+      <h3>Edit Building form:</h3>
+      <form className="edit-building-form" onSubmit={handleSubmit}>
         <div>
           <input
+            readOnly
             type="text"
             name="name"
             placeholder="Name *"
+            value={formData.name}
             required
             onChange={handleInputChange}
           />
           <input
+            readOnly
             type="text"
             name="country"
             placeholder="Country"
+            value={formData.country}
             onChange={handleInputChange}
           />
           <input
             type="text"
             name="location"
             placeholder="Location"
+            value={formData.location}
             onChange={handleInputChange}
           />
           <input
+            readOnly
             type="text"
             name="type"
             placeholder="Type"
+            value={formData.type}
             onChange={handleInputChange}
           />
           <input
             type="number"
             name="yearConstructed"
             placeholder="Year Constructed"
+            value={formData.yearConstructed}
             onChange={handleInputChange}
           />
           <input
             type="number"
             name="floor"
             placeholder="Floor"
+            value={formData.floor}
             onChange={handleInputChange}
           />
           <input
             type="number"
             name="area"
             placeholder="Area *"
+            value={formData.area}
             required
             onChange={handleInputChange}
           />
         </div>
         <div className="submit-div">
-          <button type="submit">Add Building</button>
+          <button className="submit-button2" type="submit">
+            Update Building
+          </button>
         </div>
+        <br />
+        <br />
       </form>
     </div>
   );

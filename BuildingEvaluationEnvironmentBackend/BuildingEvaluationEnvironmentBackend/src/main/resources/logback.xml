@@ -5,10 +5,10 @@
         </encoder>
     </appender>
 
-    <logger name="org.hibernate" level="DEBUG"/>
-    <logger name="org.springframework.orm.hibernate5" level="DEBUG"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.springframework.orm.hibernate5" level="INFO"/>
 
-    <root level="ERROR">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

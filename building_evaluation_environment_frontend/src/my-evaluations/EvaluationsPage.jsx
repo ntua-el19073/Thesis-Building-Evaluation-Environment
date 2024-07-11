@@ -74,11 +74,14 @@ const EvaluationsPage = () => {
           onChange={handleBuildingChange}
         >
           <option value="">Select a building</option>
-          {buildingsData.map((building) => (
-            <option key={building.id} value={building.id}>
-              {building.name}
-            </option>
-          ))}
+          {buildingsData
+            .slice()
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((building) => (
+              <option key={building.id} value={building.id}>
+                {building.name}
+              </option>
+            ))}
         </select>
       </div>
 

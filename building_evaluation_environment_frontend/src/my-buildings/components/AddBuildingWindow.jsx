@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function AddBuldingWindow({ onClose, addBuilding }) {
+export default function AddBuldingWindow({
+  buildingsData,
+  refreshBuildings,
+  onClose,
+}) {
   const [formData, setFormData] = useState({
     name: "",
     country: "",
@@ -10,30 +14,50 @@ export default function AddBuldingWindow({ onClose, addBuilding }) {
     yearConstructed: 0,
     floor: 0,
     area: 0,
+    image: null,
   });
 
   const handleInputChange = (e) => {
+    const { name, value, files } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: files ? files[0] : value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const buildingExists = buildingsData.some(
+      (building) => building.name === formData.name
+    );
+
+    if (buildingExists) {
+      alert(
+        "Building with this name already exists! Please select another name for your building."
+      );
+      return;
+    }
+
     const userEmail = localStorage.getItem("email");
     const formDataWithEmail = {
       ...formData,
       ownerEmail: userEmail,
     };
+    console.log(formDataWithEmail);
     try {
       const response = await axios.post(
         "http://localhost:8080/beeapp/api/buildings/add",
 
-        formDataWithEmail
+        formDataWithEmail,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       // Update local state with the new building data
-      addBuilding(response.data.building);
+      refreshBuildings();
       console.log(response.data.message);
       onClose(); // Hide the add form after successful submission
     } catch (error) {
@@ -88,6 +112,12 @@ export default function AddBuldingWindow({ onClose, addBuilding }) {
             name="area"
             placeholder="Area *"
             required
+            onChange={handleInputChange}
+          />
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
             onChange={handleInputChange}
           />
         </div>

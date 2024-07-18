@@ -2,6 +2,7 @@ import GoogleSignInButton from "./GoogleSignInButton";
 import SignInForm from "./SignInForm";
 import SignUpButton from "./SignUpButton";
 import "../../App.css";
+import "../LoginPage.css";
 
 export default function LoginContainer() {
   return (

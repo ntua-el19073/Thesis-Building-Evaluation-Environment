@@ -19,9 +19,10 @@ export default function EditBuildingWindow({
   });
 
   const handleInputChange = (e) => {
+    const { name, value, files } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: files ? files[0] : value,
     });
   };
 
@@ -35,7 +36,12 @@ export default function EditBuildingWindow({
     try {
       const response = await axios.put(
         `http://localhost:8080/beeapp/api/buildings/update`,
-        formDataWithEmail
+        formDataWithEmail,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       // Update local state with the new building data
       console.log(response.data);
@@ -103,6 +109,12 @@ export default function EditBuildingWindow({
             placeholder="Area *"
             value={formData.area}
             required
+            onChange={handleInputChange}
+          />
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
             onChange={handleInputChange}
           />
         </div>

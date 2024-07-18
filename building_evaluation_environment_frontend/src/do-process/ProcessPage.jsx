@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProcessForm from "./components/ProcessForm";
-import "./components/ProcessForm.css";
+import "./ProcessForm.css";
 
 const ProcessPage = () => {
   const [buildingsData, setBuildingsData] = useState([]);

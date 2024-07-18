@@ -43,7 +43,7 @@
   align-self: flex-end;
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f0f0f0;
@@ -56,55 +56,6 @@
 
 .user-name {
   font-weight: bold;
-}
-
-/*Login page css */
-.login-page {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-}
-
-.login-background {
-  flex: 1;
-  background-image: url("./images/login-background-image.jpg"); /* Replace 'background-image.jpg' with your image file */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.login-container {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-right: 15%;
-  margin-top: 13%;
-}
-
-.login-box {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: left;
-  flex-direction: column;
-  width: 250px; /* Adjust width as needed */
-  padding: 20px;
-  background-color: rgb(145, 143, 143); /* Background color for the box */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
-}
-
-.welcome-text {
-  font-family: "Arial", sans-serif; /* Replace 'Arial' with your desired font */
-  color: white; /* Set text color to white */
-  align-items: center;
-  font-size: 94px; /* Set font size to 24 pixels */
-  text-align: center; /* Center align text */
-  position: absolute; /* Position absolutely */
-  top: 50%; /* Position 50% from the top */
-  left: 35%; /* Position 50% from the left */
-  transform: translate(-50%, -50%); /* Center horizontally and vertically */
 }
 
 /* Form styles */
@@ -141,46 +92,6 @@ input {
   margin-top: 10px; /* Set the top margin */
   margin-bottom: 10px; /* Set the bottom margin */
   padding: 0; /* Remove any padding */
-}
-
-.signup-link {
-  margin-top: 20px;
-}
-
-.signup-link button {
-  margin-left: 5px;
-  background-color: transparent;
-  border: none;
-  color: #007bff;
-  cursor: pointer;
-}
-
-.google-signin {
-  background-color: #4285f4; /* Google blue color */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.google-signin:hover {
-  background-color: #357ae8; /* Darken the color on hover */
-}
-
-.signin-button {
-  background-color: #4caf50; /* Green color */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.signin-button:hover {
-  background-color: #45a049; /* Darken the color on hover */
 }
 
 /*Details page css */
@@ -222,62 +133,8 @@ input {
   background-color: #231717; /* Background color for header */
 }
 
-/*Main menu page css */
-.outer-panel {
-  width: 100vw; /* Adjust as needed */
-  height: 100vh; /* Adjust as needed */
-  background-color: #f0f0f0; /* Outer square panel color */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.inner-panel {
-  width: 70%; /* Adjust as needed */
-  height: 70%; /* Adjust as needed */
-  background-color: #e0e0e0; /* Inner square panel color */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.top-menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  height: 20%;
-}
-
-.logo {
-  margin-bottom: 10%;
-  flex: 20;
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  width: 80px;
-  min-height: 80px;
-  background-image: url("./images/emp_logo.png");
-}
-
-.menu {
-  margin-top: 10%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-self: center;
-  justify-content: space-evenly;
-  /* Add styles for menu */
-}
-
-.menu-button {
-  width: 150px; /* Adjust as needed */
-  height: 150px; /* Adjust as needed */
-  margin-bottom: 10px;
-  background-color: #4caf50; /* Button color */
-  color: white;
-  border: none;
-  cursor: pointer;
-  /* Add more button styles as needed */
+body,
+html {
+  margin: 0;
+  padding: 0;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./ProcessForm.css";
+import "../ProcessForm.css";
 
 const ProcessForm = ({ buildingId }) => {
   const currentYear = new Date().getFullYear();

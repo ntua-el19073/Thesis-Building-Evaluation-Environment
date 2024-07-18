@@ -26,7 +26,7 @@ const BuildingsPage = () => {
       );
       setBuildingsData(response.data);
       setActiveBuilding("");
-      console.log(buildingsData);
+      console.log(response.data);
     } catch (error) {
       console.error("Error fetching buildings data:", error);
     } finally {
@@ -38,12 +38,9 @@ const BuildingsPage = () => {
     fetchBuildingsData();
   }, []);
 
-  const addBuilding = (newBuilding) => {
-    setBuildingsData([...buildingsData, newBuilding]);
-  };
-
   const removeBuilding = (id) => {
     setBuildingsData(buildingsData.filter((building) => building.id !== id));
+    setActiveBuilding(null);
   };
 
   if (loading) {
@@ -81,18 +78,18 @@ const BuildingsPage = () => {
       </div>
       <br />
       {/* <div className="building-tabs">
-        {buildingsData.map((building) => (
-          <div
-            key={building.id}
-            className={`tab ${building === activeBuilding ? "active" : ""}`}
-            onClick={() => setActiveBuilding(building)}
-          >
-            {building.name}
-          </div>
-        ))}
-      </div> */}
+          {buildingsData.map((building) => (
+            <div
+              key={building.id}
+              className={`tab ${building === activeBuilding ? "active" : ""}`}
+              onClick={() => setActiveBuilding(building)}
+            >
+              {building.name}
+            </div>
+          ))}
+        </div> */}
       {/* Data section */}
-      {activeBuilding && (
+      {/* {activeBuilding && (
         <div className="data-section">
           <div className="left-column">
             <div>Name: {activeBuilding.name}</div>
@@ -102,6 +99,39 @@ const BuildingsPage = () => {
             <div>Year Constructed: {activeBuilding.yearConstructed}</div>
             <div>Floor: {activeBuilding.floor}</div>
             <div>Area: {activeBuilding.area}</div>
+            {activeBuilding.imagePath && (
+              <div>
+                <img
+                  src={`http://localhost:8080/beeapp/static/images/${activeBuilding.imagePath}`}
+                  alt={activeBuilding.name}
+                  style={{ width: "200px", height: "200px" }}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      )} */}
+      {activeBuilding && (
+        <div className="data-section">
+          <div className="left-column">
+            <div className="building-info">
+              <div>Name: {activeBuilding.name}</div>
+              <div>Country: {activeBuilding.country}</div>
+              <div>Location: {activeBuilding.location}</div>
+              <div>Type: {activeBuilding.type}</div>
+              <div>Year Constructed: {activeBuilding.yearConstructed}</div>
+              <div>Floor: {activeBuilding.floor}</div>
+              <div>Area: {activeBuilding.area}</div>
+            </div>
+            {activeBuilding.imagePath && (
+              <div className="right-column">
+                <img
+                  src={`http://localhost:8080/beeapp/static/images/${activeBuilding.imagePath}`}
+                  alt={activeBuilding.name}
+                  style={{ width: "200px", height: "200px" }}
+                />
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -120,7 +150,10 @@ const BuildingsPage = () => {
         />
       )}
       <br /> <br />
-      <AddBuildingButton addBuilding={addBuilding}></AddBuildingButton>
+      <AddBuildingButton
+        buildingsData={buildingsData}
+        refreshBuildings={fetchBuildingsData}
+      />
     </div>
   );
 };

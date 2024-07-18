@@ -1,4 +1,5 @@
 import "../App.css";
+import "./MainMenu.css";
 import ProfileBox from "../components/ProfileBox";
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +8,13 @@ const MainMenu = ({ userName }) => {
 
   const goToPage = (page) => {
     navigate(page);
+  };
+
+  const signOut = () => {
+    localStorage.removeItem("email");
+    localStorage.removeItem("username");
+    localStorage.removeItem("token");
+    navigate("/login");
   };
 
   return (
@@ -29,9 +37,9 @@ const MainMenu = ({ userName }) => {
           >
             My Evaluations
           </button>
-          <button className="menu-button" onClick={() => goToPage("/details")}>
+          {/* <button className="menu-button" onClick={() => goToPage("/details")}>
             Details
-          </button>
+          </button> */}
           <button
             className="menu-button"
             onClick={() => goToPage("/buildings")}
@@ -41,6 +49,9 @@ const MainMenu = ({ userName }) => {
           <button className="menu-button">About us</button>
           {/* Add more buttons as needed */}
         </div>
+        <button className="sign-out" onClick={() => signOut()}>
+          Sign out
+        </button>
       </div>
     </div>
   );

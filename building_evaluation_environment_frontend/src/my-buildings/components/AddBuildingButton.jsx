@@ -2,7 +2,7 @@ import "../BuildingsPage.css";
 import React, { useState } from "react";
 import AddBuildingWindow from "./AddBuildingWindow"; // Import the SignUpForm component
 
-export default function SignUpButton({ addBuilding }) {
+export default function SignUpButton({ buildingsData, refreshBuildings }) {
   const [showSignUp, setShowSignUp] = useState(false);
 
   const toggleSignUp = () => {
@@ -15,7 +15,11 @@ export default function SignUpButton({ addBuilding }) {
         New Building
       </button>
       {showSignUp && (
-        <AddBuildingWindow addBuilding={addBuilding} onClose={toggleSignUp} />
+        <AddBuildingWindow
+          buildingsData={buildingsData}
+          refreshBuildings={refreshBuildings}
+          onClose={toggleSignUp}
+        />
       )}
     </div>
   );

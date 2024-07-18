@@ -5,8 +5,11 @@
   padding: 20px;
   background-color: rgb(236, 242, 243);
   width: 100%;
+  width: 100vw;
   height: 100%;
-  position: absolute;
+  height: 100vh;
+
+  position: relative;
 }
 
 .building-tabs {
@@ -28,7 +31,17 @@
   background-color: #ccc;
 }
 
-.data-section {
+body,
+html {
+  background-color: rgb(236, 242, 243);
+
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Ensure no horizontal scroll */
+  overflow-y: auto;
+}
+
+/* .data-section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -51,6 +64,38 @@
   width: 200px;
   height: auto;
   margin-bottom: 10px;
+} */
+
+.data-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.left-column {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.building-info {
+  font-size: 18px; /* Increase text size */
+}
+
+.right-column {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-column img {
+  width: 200px;
+  height: auto;
+  margin-left: 20px; /* Adjust spacing between text and image */
 }
 
 .add-building-button {

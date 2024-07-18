@@ -1,6 +1,7 @@
 import "../../App.css";
 import React, { useState } from "react";
 import SignUpWindow from "./SignUpWindow"; // Import the SignUpForm component
+import "../LoginPage.css";
 
 export default function SignUpButton() {
   const [showSignUp, setShowSignUp] = useState(false);

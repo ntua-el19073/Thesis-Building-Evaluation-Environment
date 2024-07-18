@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.multipart.MultipartFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,13 +19,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/buildings")
-public class BuildingControllerImpl implements BuildingsController{
+public class BuildingControllerImpl implements BuildingsController {
 
     @Autowired
     private BuildingService buildingService;
     @Autowired
     private EvaluationService evaluationService;
-
 
     private static final Logger logger = LoggerFactory.getLogger(BuildingsController.class);
 
@@ -39,19 +38,22 @@ public class BuildingControllerImpl implements BuildingsController{
     }
 
     @PostMapping("/add")
-    public ResponseEntity<AddBuildingResponseDTO> addBuilding(@RequestBody BuildingDTO buildingDTO) {
-        //ResponseEntity<AddBuildingResponseDTO> response= buildingService.addBuilding(buildingDTO); 
-        return (buildingService.addBuilding(buildingDTO));
+    public ResponseEntity<AddBuildingResponseDTO> addBuilding(@ModelAttribute BuildingDTO buildingDTO,
+            @RequestParam(name = "image", required = false) MultipartFile image) {
+        // ResponseEntity<AddBuildingResponseDTO> response=
+        // buildingService.addBuilding(buildingDTO);
+        return (buildingService.addBuilding(buildingDTO, image));
     }
 
     @DeleteMapping("/delete")
     public ResponseEntity<String> removeBuilding(@RequestParam Long id) {
-        //ResponseEntity<String> response= buildingService.removeBuilding(id); 
+        // ResponseEntity<String> response= buildingService.removeBuilding(id);
         return (buildingService.removeBuilding(id));
     }
 
     @PutMapping("/update")
-    public ResponseEntity<String> updateBuilding(@RequestBody BuildingDTO buildingDTO) {
-        return (buildingService.updateBuilding(buildingDTO));
+    public ResponseEntity<String> updateBuilding(@ModelAttribute BuildingDTO buildingDTO,
+            @RequestParam(name = "image", required = false) MultipartFile image) {
+        return (buildingService.updateBuilding(buildingDTO, image));
     }
 }

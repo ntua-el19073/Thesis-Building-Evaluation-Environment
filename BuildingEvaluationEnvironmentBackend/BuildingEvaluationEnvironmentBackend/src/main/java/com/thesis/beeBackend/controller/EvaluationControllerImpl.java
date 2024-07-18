@@ -37,12 +37,10 @@ public class EvaluationControllerImpl implements EvaluationController {
         logger.info(request.toString());
         return evaluationService.evaluate(request);
     }
-    
+
     @GetMapping("/evaluations/{buildingId}")
     public ResponseEntity<List<Evaluation>> getEvaluationsForBuilding(@PathVariable Long buildingId) {
         List<Evaluation> evaluations = evaluationService.getEvaluationsForBuilding(buildingId);
         return new ResponseEntity<>(evaluations, HttpStatus.OK);
     }
 }
-
-

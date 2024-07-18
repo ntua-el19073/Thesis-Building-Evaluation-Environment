@@ -13,7 +13,6 @@ import com.thesis.beeBackend.dto.*;
 import com.thesis.beeBackend.service.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,36 +27,32 @@ public class UserControllerImpl implements UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @PostMapping("/google-signin")
-    //@CrossOrigin(origins = "http://localhost:5173")
+    // @CrossOrigin(origins = "http://localhost:5173")
     public ResponseEntity<LoginResponseDTO> googleSignIn(@RequestBody UserDTO userDTO) {
-        //ResponseEntity<LoginResponseDTO> response = userService.googleSignIn(userDTO);
+        // ResponseEntity<LoginResponseDTO> response =
+        // userService.googleSignIn(userDTO);
         return userService.googleSignIn(userDTO);
     }
 
     @PostMapping("/login")
-    //@CrossOrigin(origins = "http://localhost:5173")
+    // @CrossOrigin(origins = "http://localhost:5173")
     public ResponseEntity<LoginResponseDTO> login(@RequestBody UserDTO userDTO) {
-        //ResponseEntity<LoginResponseDTO> response = userService.login(userDTO);
+        // ResponseEntity<LoginResponseDTO> response = userService.login(userDTO);
         return userService.login(userDTO);
     }
 
     @PostMapping("/signup")
-    //@CrossOrigin(origins = "http://localhost:5173")
+    // @CrossOrigin(origins = "http://localhost:5173")
     public ResponseEntity<String> signup(@RequestBody UserDTO userDTO) {
-        //String response = userService.signup(userDTO);
-        try{
-            return ResponseEntity.ok(userService.signup(userDTO));
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-        }   
+        // String response = userService.signup(userDTO);
+        return userService.signup(userDTO);
     }
-
 
     // @GetMapping("/test")
     // //@CrossOrigin(origins = "http://localhost:5173")
     // public ResponseEntity<String> testEndpoint() {
-    //     logger.info("Endpoint accessed: /api/test");
-    //     return ResponseEntity.ok("Test endpoint works like a charm");
+    // logger.info("Endpoint accessed: /api/test");
+    // return ResponseEntity.ok("Test endpoint works like a charm");
     // }
-    
+
 }

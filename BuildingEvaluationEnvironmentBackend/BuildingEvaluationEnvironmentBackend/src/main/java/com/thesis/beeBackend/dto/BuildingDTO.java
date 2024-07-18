@@ -17,4 +17,5 @@ public class BuildingDTO {
     private int floor;
     private int area;
     private String ownerEmail;
+    private String imagePath;
 }

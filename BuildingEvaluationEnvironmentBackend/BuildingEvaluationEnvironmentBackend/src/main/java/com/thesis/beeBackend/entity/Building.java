@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "buildings")
+@Table(name = "buildings", uniqueConstraints = { @UniqueConstraint(columnNames = { "ownerEmail", "name" }) })
 public class Building {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,15 +31,18 @@ public class Building {
 
     @Column(name = "year_constructed")
     private int yearConstructed;
-    
+
     @Column(name = "floor")
     private int floor;
-    
+
     @Column(name = "area")
     private int area;
 
     @Column(name = "owner_email")
-    private String ownerEmail; // New field for owner's email
+    private String ownerEmail;
+
+    @Column(name = "image_path")
+    private String imagePath;
 
     // Getters and setters
 }

@@ -7,10 +7,11 @@
 
 .login-background {
   flex: 1;
-  background-image: url("../images/login-background-image.jpg"); /* Replace 'background-image.jpg' with your image file */
-  background-size: cover;
+  background-image: url("../images/login-background-image3.jpg"); /* Replace 'background-image.jpg' with your image file */
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: rgb(145, 143, 143); /* Background color for the box */
 }
 
 .login-container {
@@ -18,8 +19,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 15%;
-  margin-top: 13%;
+  margin-right: 6%;
+  margin-top: 4%;
 }
 
 .login-box {
@@ -35,16 +36,20 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
 }
 
-.welcome-text {
+.welcome-box {
   font-family: "Arial", sans-serif; /* Replace 'Arial' with your desired font */
-  color: white; /* Set text color to white */
+  color: rgb(245, 234, 234); /* Set text color to white */
   align-items: center;
-  font-size: 94px; /* Set font size to 24 pixels */
+  font-size: 35px; /* Set font size to 24 pixels */
   text-align: center; /* Center align text */
   position: absolute; /* Position absolutely */
   top: 50%; /* Position 50% from the top */
-  left: 35%; /* Position 50% from the left */
+  left: 15%; /* Position 50% from the left */
   transform: translate(-50%, -50%); /* Center horizontally and vertically */
+}
+
+.welcome-text {
+  color: rgb(245, 234, 234); /* Set text color to white */
 }
 
 .signup-form .field {

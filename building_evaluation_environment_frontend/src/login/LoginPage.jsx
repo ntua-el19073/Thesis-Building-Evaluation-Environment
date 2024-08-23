@@ -22,9 +22,9 @@ export default function LoginPage() {
     <div className="login-page">
       {/* Background image */}
       <div className="login-background">
-        <div className="welcome-text">
-          <p>Welcome back!</p>
-          <p>Please sign in to continue.</p>
+        <div className="welcome-box">
+          <p className="welcome-text">Welcome back!</p>
+          <p className="welcome-text">Please sign in to continue.</p>
         </div>
         {/* Login form */}
         <LoginContainer />

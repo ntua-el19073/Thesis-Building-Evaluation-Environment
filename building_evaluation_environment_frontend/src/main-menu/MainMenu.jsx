@@ -46,7 +46,9 @@ const MainMenu = ({ userName }) => {
           >
             My Buildings
           </button>
-          <button className="menu-button">About us</button>
+          <button className="menu-button" onClick={() => goToPage("/about-us")}>
+            About us
+          </button>
           {/* Add more buttons as needed */}
         </div>
         <button className="sign-out" onClick={() => signOut()}>

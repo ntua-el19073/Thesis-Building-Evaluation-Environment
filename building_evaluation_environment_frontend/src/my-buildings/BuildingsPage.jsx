@@ -77,6 +77,8 @@ const BuildingsPage = () => {
         </select>
       </div>
       <br />
+      <br />
+      <br />
       {/* <div className="building-tabs">
           {buildingsData.map((building) => (
             <div
@@ -117,11 +119,11 @@ const BuildingsPage = () => {
             <div className="building-info">
               <div>Name: {activeBuilding.name}</div>
               <div>Country: {activeBuilding.country}</div>
-              <div>Location: {activeBuilding.location}</div>
               <div>Type: {activeBuilding.type}</div>
+              <div>Address: {activeBuilding.location}</div>
               <div>Year Constructed: {activeBuilding.yearConstructed}</div>
               <div>Floor: {activeBuilding.floor}</div>
-              <div>Area: {activeBuilding.area}</div>
+              <div>Land Area (m2): {activeBuilding.area}</div>
             </div>
             {activeBuilding.imagePath && (
               <div className="right-column">
@@ -135,6 +137,7 @@ const BuildingsPage = () => {
           </div>
         </div>
       )}
+      <br></br>
       {activeBuilding && (
         <EditBuildingButton
           refreshBuildings={fetchBuildingsData}

@@ -112,9 +112,52 @@ html {
 }
 
 .add-building-form {
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
+.form-input {
+  width: 13%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 5px;
+
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+/* .form-input select {
+  appearance: none; /* Removes default dropdown styling for consistency 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+} */
+
+.select-wrapper {
+  position: relative;
+  width: 14%;
+}
+
+/*.select-wrapper::after {
+  content: "▼"; /* Custom arrow 
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Allows clicks to pass through to the select element 
+}
+
+select.form-input {
+  width: 14%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  -webkit-appearance: none; /* Removes default dropdown arrow 
+  -moz-appearance: none;
+  appearance: none;
+} */
 
 .submit-button2 {
   padding: 10px 20px;

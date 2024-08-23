@@ -87,9 +87,17 @@ public class UserServiceImpl implements UserService {
         User existingUser = userRepository.findByEmail(userDTO.getEmail());
         if (existingUser != null && !existingUser.isGoogleLogin()) {
             return ResponseEntity.badRequest().body("Sign-up unsuccessful: email is already being used");
+        } else if (existingUser != null) {
+            existingUser.setPassword(userDTO.getPassword());
+            existingUser.setGoogleLogin(false);
+            userRepository.save(existingUser);
+            // createUser(userDTO, false);
+            return ResponseEntity.ok()
+                    .body("Sign-up successful: user can now sign in through log in. Please login to continue.");
         } else {
             createUser(userDTO, false);
             return ResponseEntity.ok().body("Sign-up successful: new user has been created. Please login to continue.");
+
         }
     }
 

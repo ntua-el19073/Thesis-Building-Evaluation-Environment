@@ -13,5 +13,6 @@ public interface EvaluationRepository extends JpaRepository<Evaluation, Long> {
 
     List<Evaluation> findByBuildingId(Long buildingId);
 
-    
-} 
+    Optional<Evaluation> findByBuildingIdAndYear(Long buildingId, int year);
+
+}

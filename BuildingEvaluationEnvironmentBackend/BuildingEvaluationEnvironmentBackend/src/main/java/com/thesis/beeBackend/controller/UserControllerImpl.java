@@ -48,11 +48,4 @@ public class UserControllerImpl implements UserController {
         return userService.signup(userDTO);
     }
 
-    // @GetMapping("/test")
-    // //@CrossOrigin(origins = "http://localhost:5173")
-    // public ResponseEntity<String> testEndpoint() {
-    // logger.info("Endpoint accessed: /api/test");
-    // return ResponseEntity.ok("Test endpoint works like a charm");
-    // }
-
 }

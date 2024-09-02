@@ -13,4 +13,6 @@ public interface EvaluationRequestRepository extends JpaRepository<EvaluationReq
 
     Optional<EvaluationRequest> findByBuildingIdAndYear(Long buildingId, int year);
 
+    void deleteByYearAndBuildingId(int year, Long buildingId);
+
 }

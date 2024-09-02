@@ -20,4 +20,6 @@ public interface EvaluationService {
 
     ResponseEntity<EvaluationRequest> getPreviousEvaluationRequest(Long buildingId, int year);
 
+    ResponseEntity<String> removeEvaluation(int year, Long buildingId);
+
 }

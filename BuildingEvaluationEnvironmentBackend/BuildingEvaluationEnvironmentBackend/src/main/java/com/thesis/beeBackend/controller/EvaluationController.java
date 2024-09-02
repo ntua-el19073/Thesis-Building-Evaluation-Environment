@@ -18,10 +18,11 @@ public interface EvaluationController {
 
     ResponseEntity<List<Evaluation>> getEvaluationsForBuilding(@RequestBody Long buildingId);
 
-    ResponseEntity<Boolean> existenceCheck (@RequestParam Long buildingid, @RequestParam int yearOfEvaluation);
+    ResponseEntity<Boolean> existenceCheck(@RequestParam Long buildingid, @RequestParam int yearOfEvaluation);
 
-    ResponseEntity<EvaluationRequest> getPreviousEvaluationRequest(@PathVariable Long buildingId, @PathVariable int year);
+    ResponseEntity<EvaluationRequest> getPreviousEvaluationRequest(@PathVariable Long buildingId,
+            @PathVariable int year);
 
-} 
-    
+    ResponseEntity<String> removeEvaluation(@RequestParam String year, @RequestParam String buildingId);
 
+}

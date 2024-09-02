@@ -1,5 +1,8 @@
 package com.thesis.beeBackend.service;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -103,7 +106,6 @@ public class EvaluationServiceImpl implements EvaluationService {
         }
         evaluationRequestRepository.save(request);
 
-
         Optional<Evaluation> previousEvaluation = evaluationRepository
                 .findByBuildingIdAndYear(evaluationRequestDTO.getBuildingId(), evaluationRequestDTO.getYear());
         if (previousEvaluation.isPresent()) {
@@ -134,6 +136,29 @@ public class EvaluationServiceImpl implements EvaluationService {
         return evaluationRepository.findByBuildingId(buildingId);
     }
 
+    public ResponseEntity<String> removeEvaluation(int year, Long buildingId) {
+        try {
+            logger.info("Here1");
+            Optional<Evaluation> eval = evaluationRepository.findByBuildingIdAndYear(buildingId, year);
+            if (eval.isPresent()) {
+                evaluationRepository.delete(eval.get());
+
+            }
+            Optional<EvaluationRequest> evalRequest = evaluationRequestRepository.findByBuildingIdAndYear(buildingId,
+                    year);
+            if (evalRequest.isPresent()) {
+                evaluationRequestRepository.delete(evalRequest.get());
+            }
+            logger.info("Here2");
+            evaluationRequestRepository.deleteByYearAndBuildingId(year, buildingId);
+            return ResponseEntity.ok(
+                    "Evaluation and EvaluationRequest for building with id " + buildingId + "for year " + year
+                            + "was deleted successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     // Calculate the IEQ score
     private double calculateIEQScore(EvaluationRequestDTO evaluationRequestDTO) {
         Map<String, String> importanceMap = evaluationRequestDTO.getImportance();
@@ -154,7 +179,7 @@ public class EvaluationServiceImpl implements EvaluationService {
 
         // Min-Max scaling normalization (cost) with Max equal to 980 and min equal to
         // 190. Values below 190 are considered perfect (100%)
-        double air_quality = Math.min(((980 - evaluationRequestDTO.getAirQuality()) / (980 - 190)), 1.0) * 100;
+        double air_quality = evaluationRequestDTO.getAirQuality();
         logger.info("Air quality is " + air_quality);
 
         // Calculate the weighted sum for IEQ criteria
@@ -190,9 +215,7 @@ public class EvaluationServiceImpl implements EvaluationService {
         // The perfect energy produced benchmark is set at 50% of the building's energy
         // consumed. Any value above that gets
         // a perfect score
-        double energyProducedScore = Math.min(
-                ((evaluationRequestDTO.getEnergyProduced() * 2) / buildingEnergyConsumption),
-                1) * 100;
+        double energyProducedScore = evaluationRequestDTO.getEnergyProduced();
         logger.info("EnergyProduced Score is: " + energyProducedScore);
         double energyPerformanceScoreSum = (energyConsumptionScore * euiImportance)
                 + (energyProducedScore * energyProducedImportance);
@@ -218,9 +241,9 @@ public class EvaluationServiceImpl implements EvaluationService {
         double buildingWaterConsumption = evaluationRequestDTO.getWaterConsumption();
         double waterConsumptionScore = calculateConsumptionScore(buildingWaterConsumption, medianWaterConsumption);
 
-        // The perfect water Reused benchmark is set at 33.3%. Any value above that gets
-        // a perfect score
-        double waterReusedScore = Math.min((evaluationRequestDTO.getWaterReused() * 3), 1);
+        logger.info("Water consumption Score is: " + waterConsumptionScore);
+        double waterReusedScore = evaluationRequestDTO.getWaterReused();
+        logger.info("Water recycling Score is: " + waterReusedScore);
 
         double recyclingScore = evaluationRequestDTO.getRecycling();
 
@@ -283,7 +306,7 @@ public class EvaluationServiceImpl implements EvaluationService {
 
     private double calculateConsumptionScore(double buildingConsumption, int medianConsumption) {
         double maxThreshold = medianConsumption * 2.0; // Twice the benchmark
-        double minThreshold = medianConsumption * 0.9; // 10% below the benchmark
+        double minThreshold = medianConsumption;
 
         if (buildingConsumption <= minThreshold) {
             return 100.0; // Best possible score

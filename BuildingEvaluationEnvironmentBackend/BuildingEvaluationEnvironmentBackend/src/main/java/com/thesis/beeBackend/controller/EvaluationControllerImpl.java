@@ -1,5 +1,6 @@
 package com.thesis.beeBackend.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,5 +56,13 @@ public class EvaluationControllerImpl implements EvaluationController {
     @GetMapping("/evaluations/check")
     public ResponseEntity<Boolean> existenceCheck(@RequestParam Long buildingId, @RequestParam int yearOfEvaluation) {
         return evaluationService.existenceCheck(buildingId, yearOfEvaluation);
+    }
+
+    @DeleteMapping("evaluations/delete")
+    public ResponseEntity<String> removeEvaluation(@RequestParam String year, @RequestParam String buildingId) {
+        // ResponseEntity<String> response= buildingService.removeBuilding(id);
+        logger.info(buildingId);
+        logger.info(year);
+        return (evaluationService.removeEvaluation(Integer.parseInt(year), Long.parseLong(buildingId)));
     }
 }

@@ -29,19 +29,25 @@ const EnvironmentCircularitySection = ({
           <option value="critical">Critical</option>
         </select>
       </div>
+
       <div className="form-group">
         <label htmlFor="waterConsumption">
-          Water Consumption:
-          <Tooltip text="Measure of the total water consumption in the building, per occupant." />
+          Water Consumption per occupant:
+          <Tooltip text="Water Consumption per occupant refers to the total water consumption in the building divided by the number of occupants. Measured in m³ per inhabitant " />
         </label>
         <input
-          type="text"
+          type="number"
           id="waterConsumption"
           value={formData.waterConsumption}
           onChange={(e) => onChange("waterConsumption", e.target.value)}
-          required
+          min="0"
         />
-        <label htmlFor="importance-waterConsumption">Importance:</label>
+        <label
+          className="importance-label"
+          htmlFor="importance-waterConsumption"
+        >
+          Importance:
+        </label>
         <select
           id="importance-waterConsumption"
           value={formData.importance.waterConsumption || "irrelevant"}
@@ -58,17 +64,20 @@ const EnvironmentCircularitySection = ({
       </div>
       <div className="form-group">
         <label htmlFor="waterReused">
-          Water Reused:
-          <Tooltip text="Percentage of water that is reused in the building." />
+          Water Recycling:
+          <Tooltip text="Water recycling refers the percentage of water needs covered by the building from sources such as greywater and rainwater. " />
         </label>
         <input
-          type="text"
+          type="number"
           id="waterReused"
           value={formData.waterReused}
           onChange={(e) => onChange("waterReused", e.target.value)}
-          required
+          min="0"
+          max="100"
         />
-        <label htmlFor="importance-waterReused">Importance:</label>
+        <label className="importance-label" htmlFor="importance-waterReused">
+          Importance:
+        </label>
         <select
           id="importance-waterReused"
           value={formData.importance.waterReused || "irrelevant"}
@@ -83,17 +92,20 @@ const EnvironmentCircularitySection = ({
       </div>
       <div className="form-group">
         <label htmlFor="recycling">
-          Recycling:
-          <Tooltip text="Percentage of materials that are recycled in the building." />
+          Material Recycling:
+          <Tooltip text="Percentage of recyclable materials that are actually beeing recycled in the building." />
         </label>
         <input
-          type="text"
+          type="number"
           id="recycling"
           value={formData.recycling}
           onChange={(e) => onChange("recycling", e.target.value)}
-          required
+          min="0"
+          max="100"
         />
-        <label htmlFor="importance-recycling">Importance:</label>
+        <label className="importance-label" htmlFor="importance-recycling">
+          Importance:
+        </label>
         <select
           id="importance-recycling"
           value={formData.importance.recycling || "irrelevant"}

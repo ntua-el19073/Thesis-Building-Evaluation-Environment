@@ -26,7 +26,7 @@ const AccessibilitySection = ({ formData, onChange, onImportanceChange }) => {
       <div className="form-group">
         <label htmlFor="elevatorForEveryFloor">
           Elevator for Every Floor:
-          <Tooltip text="Indicates whether there is an elevator that serves every floor of the building." />
+          <Tooltip text="Indicates whether the building has elevators that provide access to different floors for people with disabilities or mobility challenges. Elevator access is essential for ensuring that all areas of the building are accessible to everyone." />
         </label>
         <input
           type="checkbox"
@@ -38,7 +38,7 @@ const AccessibilitySection = ({ formData, onChange, onImportanceChange }) => {
       <div className="form-group">
         <label htmlFor="rampOrEntryForDisabled">
           Ramp or Entry for Disabled:
-          <Tooltip text="Indicates whether there is a ramp or accessible entry for disabled individuals." />
+          <Tooltip text="Indicates whether the building is equipped with ramps to ensure accessibility for individuals using wheelchairs or those with mobility impairments. Proper ramp access is crucial for compliance with accessibility standards and for promoting inclusivity." />
         </label>
         <input
           type="checkbox"
@@ -50,7 +50,7 @@ const AccessibilitySection = ({ formData, onChange, onImportanceChange }) => {
       <div className="form-group">
         <label htmlFor="bathroomForDisabled">
           Bathroom for Disabled:
-          <Tooltip text="Indicates whether there are bathrooms that are accessible for disabled individuals." />
+          <Tooltip text="Indicates whether the building includes restrooms that are designed to be accessible for individuals with disabilities. Accessible restrooms typically feature grab bars, wider stalls, and other accommodations to meet accessibility standards." />
         </label>
         <input
           type="checkbox"
@@ -62,7 +62,7 @@ const AccessibilitySection = ({ formData, onChange, onImportanceChange }) => {
       <div className="form-group">
         <label htmlFor="gateWidth">
           Gate Width Larger than 1m:
-          <Tooltip text="Indicates whether the width of the gate is at least 1 meter." />
+          <Tooltip text="Indicates whether the building’s gates have a width of more than 1 meter, providing sufficient space for wheelchairs, strollers, and other mobility aids. Wider gates are essential for ensuring smooth and safe access for all users." />
         </label>
         <input
           type="checkbox"
@@ -74,7 +74,7 @@ const AccessibilitySection = ({ formData, onChange, onImportanceChange }) => {
       <div className="form-group">
         <label htmlFor="publicTransport">
           Public Transport within Walking Distance:
-          <Tooltip text="Indicates whether there is public transport within walking distance of the building." />
+          <Tooltip text="Indicates whether there is access to public transportation within walking distance (500m) from the building. Proximity to public transport options is crucial for improving accessibility and reducing reliance on personal vehicles." />
         </label>
         <input
           type="checkbox"
@@ -86,7 +86,7 @@ const AccessibilitySection = ({ formData, onChange, onImportanceChange }) => {
       <div className="form-group">
         <label htmlFor="parking">
           Parking:
-          <Tooltip text="Indicates whether there is parking available at the building." />
+          <Tooltip text="Indicates whether the building provides parking facilities, including designated accessible parking spaces." />
         </label>
         <input
           type="checkbox"

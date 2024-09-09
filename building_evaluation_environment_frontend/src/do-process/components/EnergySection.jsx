@@ -19,19 +19,22 @@ const EnergySection = ({ formData, onChange, onImportanceChange }) => {
           <option value="critical">Critical</option>
         </select>
       </div>
+
       <div className="form-group">
         <label htmlFor="eui">
           EUI:
-          <Tooltip text="EUI is expressed as energy per square foot per year. It's calculated by dividing the total energy consumed by the building in one year (measured in kBtu or GJ) by the total gross floor area of the building." />
+          <Tooltip text="EUI is expressed as energy per square foot per year. It's calculated by dividing the total energy consumed by the building in one year by the total gross floor area of the building. Measured in kWh/m²." />
         </label>
         <input
-          type="text"
+          type="number"
           id="eui"
           value={formData.eui}
           onChange={(e) => onChange("eui", e.target.value)}
-          required
+          min="0"
         />
-        <label htmlFor="importance-eui">Importance:</label>
+        <label className="importance-label" htmlFor="importance-eui">
+          Importance:
+        </label>
         <select
           id="importance-eui"
           value={formData.importance.eui || "irrelevant"}
@@ -46,17 +49,20 @@ const EnergySection = ({ formData, onChange, onImportanceChange }) => {
       </div>
       <div className="form-group">
         <label htmlFor="energyProduced">
-          Energy Produced:
-          <Tooltip text="The amount of energy produced by the building, measured in kWh." />
+          Energy autonomy:
+            <Tooltip text="Energy autonomy refers to the percentage of energy needs covered by the building from sources such as geothermal heat pumps, solar water heating, solar panels, wind energy systems. It is calculated by measuring the energy saved or produced by such means and then dividing in ty the total energy consumed." />
         </label>
         <input
-          type="text"
+          type="number"
           id="energyProduced"
           value={formData.energyProduced}
           onChange={(e) => onChange("energyProduced", e.target.value)}
-          required
+          min="0"
+          max="100"
         />
-        <label htmlFor="importance-energyProduced">Importance:</label>
+        <label className="importance-label" htmlFor="importance-energyProduced">
+          Importance:
+        </label>
         <select
           id="importance-energyProduced"
           value={formData.importance.energyProduced || "irrelevant"}

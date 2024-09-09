@@ -177,8 +177,6 @@ public class EvaluationServiceImpl implements EvaluationService {
             return 0; // Avoid division by zero
         }
 
-        // Min-Max scaling normalization (cost) with Max equal to 980 and min equal to
-        // 190. Values below 190 are considered perfect (100%)
         double air_quality = evaluationRequestDTO.getAirQuality();
         logger.info("Air quality is " + air_quality);
 
@@ -242,7 +240,7 @@ public class EvaluationServiceImpl implements EvaluationService {
         double waterConsumptionScore = calculateConsumptionScore(buildingWaterConsumption, medianWaterConsumption);
 
         logger.info("Water consumption Score is: " + waterConsumptionScore);
-        double waterReusedScore = evaluationRequestDTO.getWaterReused();
+        double waterReusedScore = Math.max(evaluationRequestDTO.getWaterReused() * 2, 100);
         logger.info("Water recycling Score is: " + waterReusedScore);
 
         double recyclingScore = evaluationRequestDTO.getRecycling();

@@ -5,10 +5,10 @@ const AboutUs = () => {
   return (
     <div className="about-us-container">
       <div className="about-me">
-        <img
+        {/* <img
           src="../images/login-background-image3.jpg"
           className="profile-pic"
-        />
+        /> */}
         <h2>Konstantinos Tsokas</h2>
         <p>
           Hi! I'm Konstantinos Tsokas, an enthusiastic student currently
@@ -57,7 +57,7 @@ const AboutUs = () => {
         </p>
       </div>
 
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 };

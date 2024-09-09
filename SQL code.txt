@@ -1,0 +1,146 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255),
+    google_login BOOLEAN NOT NULL
+);
+
+INSERT INTO users (id, email, username, password) 
+VALUES (1,'john@example.com', 'John Papadopoulos', '1234');
+
+
+
+CREATE TABLE evaluations (
+    id SERIAL PRIMARY KEY,
+    building_id BIGINT,
+    year INT,
+    owner_email VARCHAR(255),
+    energy_performance_score DOUBLE PRECISION,
+    indoor_environmental_quality_score DOUBLE PRECISION,
+    environment_circularity_score DOUBLE PRECISION,
+    accessibility_score DOUBLE PRECISION,
+    total_score DOUBLE PRECISION,
+    FOREIGN KEY (building_id) REFERENCES buildings(id),
+    FOREIGN KEY (owner_email) REFERENCES users(email),
+    CONSTRAINT unique_eval_year__building UNIQUE (year, building_id)
+);
+
+
+CREATE TABLE buildings (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    country VARCHAR(255),
+    location VARCHAR(255),
+    type VARCHAR(255),
+    year_constructed INT,
+    floor INT,
+    area INT,
+    owner_email VARCHAR(255),
+    image_path VARCHAR(255),
+    CONSTRAINT fk_owner_email FOREIGN KEY (owner_email) REFERENCES users(email)
+);
+
+
+
+CREATE TABLE evaluation_requests (
+    id SERIAL PRIMARY KEY,
+    year INTEGER NOT NULL,
+    owner_email VARCHAR(255) NOT NULL,
+    building_id BIGINT NOT NULL,
+    
+    eui DOUBLE PRECISION,
+    energy_produced DOUBLE PRECISION,
+    air_quality DOUBLE PRECISION,
+    humidity DOUBLE PRECISION,
+    temperature DOUBLE PRECISION,
+    lighting_comfort DOUBLE PRECISION,
+    noise_comfort DOUBLE PRECISION,
+    water_consumption DOUBLE PRECISION,
+    water_reused DOUBLE PRECISION,
+    recycling DOUBLE PRECISION,
+    elevator_for_every_floor BOOLEAN,
+    ramp_or_entry_for_disabled BOOLEAN,
+    bathroom_for_disabled BOOLEAN,
+    gate_width BOOLEAN,
+    public_transport BOOLEAN,
+    parking BOOLEAN,
+    
+    importance TEXT,
+    
+    CONSTRAINT fk_owner_email FOREIGN KEY (owner_email) REFERENCES users(email) ON DELETE CASCADE,
+    CONSTRAINT fk_building_id FOREIGN KEY (building_id) REFERENCES buildings(id) ON DELETE CASCADE,
+    CONSTRAINT unique_year__building_eval UNIQUE (year, building_id)
+
+);
+
+
+CREATE TABLE country_consumption_benchmarks (
+    id SERIAL PRIMARY KEY,
+    country VARCHAR(255) UNIQUE NOT NULL,
+    median_water_consumption INT NOT NULL,
+    median_energy_consumption INT NOT NULL
+);
+
+
+INSERT INTO country_consumption_benchmarks(country, median_water_consumption, median_energy_consumption) VALUES
+('Austria', 43 , 198),
+('Belgium', 32, 261),
+('Bulgaria',37, 120),
+('Croatia', 42, 250),
+('Cyprus', 98 ,70),
+('Czechia',32 , 233),
+('Denmark', 43, 168),	
+('Estonia', 53 ,289),
+('Finland',78 ,249),
+('France', 53 , 190),
+('Germany', 46, 200),
+('Greece', 107 ,120),
+('Hungary',37 , 150),
+('Ireland', 53, 163),
+('Italy', 74, 172),
+('Latvia', 38, 291),
+('Lithuania', 27, 205),
+('Luxembourg', 53, 206),
+('Malta', 43, 47),
+('Netherlands', 49, 152),
+('Poland',34 , 238),
+('Portugal', 59, 70),
+('Romania',31 ,308),
+('Slovakia',53 ,172),
+('Slovenia',40 , 229),
+('Spain', 47, 103),
+('Sweden',48 , 213),	
+('United Kingdom (UK)', 46 , 181)
+
+
+
+The Water consumption in Estonia, France, Ireland, Luxemburg and Slovakia
+is calculated using the average daily water usage of 145 litres per person.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

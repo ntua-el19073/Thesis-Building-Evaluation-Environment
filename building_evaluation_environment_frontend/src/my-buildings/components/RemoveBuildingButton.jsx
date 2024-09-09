@@ -2,7 +2,7 @@ import "../BuildingsPage.css";
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function SignUpButton({ removeBuilding, id }) {
+export default function DeleteButton({ removeBuilding, id }) {
   const deleteBuilding = async () => {
     const confirmDeletion = window.confirm(
       "Are you sure you want to delete this building? All its evaluations will be deleted as well. This change is irreversible."

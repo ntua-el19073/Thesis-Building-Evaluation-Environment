@@ -89,7 +89,7 @@ const ProcessPage = () => {
     <div className="process-page">
       <h2>Start an Evaluation</h2>
       <br />
-      <div className="form-group">
+      <div className="form-group2">
         <label htmlFor="building">Select a building: </label>
         <select
           id="building"
@@ -107,7 +107,7 @@ const ProcessPage = () => {
             ))}
         </select>
       </div>
-      <div className="form-group">
+      <div className="form-group2">
         <label htmlFor="year">Select the year of evaluation: </label>
         <select
           id="year"

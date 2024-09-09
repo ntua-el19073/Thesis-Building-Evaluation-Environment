@@ -130,12 +130,53 @@ const ProcessForm = () => {
     }));
   };
 
+  const viewEvaluation = () => {
+    navigate(`/evaluations?buildingId=${buildingId}&year=${year}`);
+  };
+
   const handleBackToMainMenu = () => {
     navigate("/main-menu");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const isEnergySectionValid = validateSection(
+      formData.importance.energySection,
+      ["eui", "energyProduced"]
+    );
+    const isIEQSectionValid = validateSection(formData.importance.ieqSection, [
+      "airQuality",
+      "temperature",
+      "humidity",
+      "noise",
+      "lighting",
+    ]);
+    const isEnvironmentCircularitySectionValid = validateSection(
+      formData.importance.environmentCircularitySection,
+      ["waterConsumption", "waterReused", "recycling"]
+    );
+
+    if (!isEnergySectionValid) {
+      alert(
+        'The Energy Performance section is not marked as irrelevant, but all the fields in this section have irrelevant importance. Please change the importance of the section to "Irrelevant" or make at least one of its fields relevant.'
+      );
+      return;
+    }
+
+    if (!isIEQSectionValid) {
+      alert(
+        'The Indoor Environmental Quality section is not marked as irrelevant, but all the fields in this section have irrelevant importance. Please change the importance of the section to "Irrelevant" or make at least one of its fields relevant.'
+      );
+      return;
+    }
+
+    if (!isEnvironmentCircularitySectionValid) {
+      alert(
+        'The Environment and Circularity section is not marked as irrelevant, but all the fields in this section have irrelevant importance. Please change the importance of the section to "Irrelevant" or make at least one of its fields relevant.'
+      );
+      return;
+    }
 
     const cleanedFormData = { ...formData };
 
@@ -174,6 +215,16 @@ const ProcessForm = () => {
     } catch (error) {
       console.error("Error submitting evaluation:", error);
     }
+  };
+
+  const validateSection = (sectionImportance, fields) => {
+    if (sectionImportance !== "irrelevant") {
+      const allFieldsIrrelevant = fields.every(
+        (field) => formData.importance[field] === "irrelevant"
+      );
+      return !allFieldsIrrelevant; // Returns false if all fields are irrelevant but the section is not.
+    }
+    return true; // Pass validation if the section importance is not "irrelevant"
   };
 
   return (
@@ -218,7 +269,7 @@ const ProcessForm = () => {
         </button>
       </form>
       <br />
-      <div className="form-group">
+      <div className="form-group2">
         <label htmlFor="score">Score:</label>
         <input
           type="number"
@@ -229,6 +280,11 @@ const ProcessForm = () => {
         {score === undefined && (
           <p>Score will be calculated after submission.</p>
         )}
+        {score !== undefined && (
+          <button className="view-evaluation-button" onClick={viewEvaluation}>
+            View Evaluation
+          </button>
+        )}{" "}
       </div>
       <Footer></Footer>
     </div>

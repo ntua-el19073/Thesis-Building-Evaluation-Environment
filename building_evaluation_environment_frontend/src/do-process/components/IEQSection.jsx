@@ -21,17 +21,20 @@ const IEQSection = ({ formData, onChange, onImportanceChange }) => {
       </div>
       <div className="form-group">
         <label htmlFor="airQuality">
-          Air Quality:
-          <Tooltip text="Measure of the indoor air quality, including the presence of pollutants." />
+          Air Quality Level:
+          <Tooltip text="Air Quality Level refers to the percentage of time that the Air Quality Index's value is below the acceptable limit of 950ppm. This index is measured the concentration of pollutants in the air, expressed in parts per million (PPM). This value indicates the level of indoor air contaminants, including carbon dioxide (CO2), volatile organic compounds (VOCs), and other pollutants.  Lower PPM levels represent better air quality, contributing to a healthier indoor environment." />{" "}
         </label>
         <input
-          type="text"
+          type="number"
           id="airQuality"
           value={formData.airQuality}
           onChange={(e) => onChange("airQuality", e.target.value)}
-          required
+          min="0"
+          max="100"
         />
-        <label htmlFor="importance-airQuality">Importance:</label>
+        <label className="importance-label" htmlFor="importance-airQuality">
+          Importance:
+        </label>
         <select
           id="importance-airQuality"
           value={formData.importance.airQuality || "irrelevant"}
@@ -46,17 +49,20 @@ const IEQSection = ({ formData, onChange, onImportanceChange }) => {
       </div>
       <div className="form-group">
         <label htmlFor="humidity">
-          Humidity:
-          <Tooltip text="Measure of the indoor humidity levels, indicating thermal comfort." />
+          Thermal comfort in terms of humidity:
+          <Tooltip text="Thermal comfort in terms of humidity refers to the percentage of time that the indoor relative humidity levels are maintained within the optimal range of 20-70%. This range is considered comfortable for occupants and helps prevent issues such as mold growth, respiratory discomfort, and material degradation caused by excessive dryness or moisture." />
         </label>
         <input
-          type="text"
+          type="number"
           id="humidity"
           value={formData.humidity}
           onChange={(e) => onChange("humidity", e.target.value)}
-          required
+          min="0"
+          max="100"
         />
-        <label htmlFor="importance-humidity">Importance:</label>
+        <label className="importance-label" htmlFor="importance-humidity">
+          Importance:
+        </label>
         <select
           id="importance-humidity"
           value={formData.importance.humidity || "irrelevant"}
@@ -71,17 +77,20 @@ const IEQSection = ({ formData, onChange, onImportanceChange }) => {
       </div>
       <div className="form-group">
         <label htmlFor="temperature">
-          Temperature:
-          <Tooltip text="Measure of the indoor temperature, indicating thermal comfort." />
+          Thermal comfort in terms of Temperature:
+          <Tooltip text="Thermal comfort in terms of temperature indicates the percentage of time that indoor temperatures are maintained within the optimal range of 19-27°C (66-81°F). This range is considered ideal for occupant comfort, ensuring a balance between warmth and coolness, and contributing to a productive and healthy indoor environment." />
         </label>
         <input
-          type="text"
+          type="number"
           id="temperature"
           value={formData.temperature}
           onChange={(e) => onChange("temperature", e.target.value)}
-          required
+          min="0"
+          max="100"
         />
-        <label htmlFor="importance-temperature">Importance:</label>
+        <label className="importance-label" htmlFor="importance-temperature">
+          Importance:
+        </label>
         <select
           id="importance-temperature"
           value={formData.importance.temperature || "irrelevant"}
@@ -96,17 +105,20 @@ const IEQSection = ({ formData, onChange, onImportanceChange }) => {
       </div>
       <div className="form-group">
         <label htmlFor="noise">
-          Noise Comfort:
-          <Tooltip text="Measure of the indoor noise levels, indicating acoustic comfort." />
+          Accoustic Comfort:
+          <Tooltip text="Accoustic comfort refers to the percentage of time that indoor sound levels are maintained below 35 decibels (dB). Keeping noise levels within this range is important for minimizing distractions and ensuring a quiet, peaceful environment conducive to concentration and relaxation." />
         </label>
         <input
-          type="text"
+          type="number"
           id="noise"
           value={formData.noise}
           onChange={(e) => onChange("noise", e.target.value)}
-          required
+          min="0"
+          max="100"
         />
-        <label htmlFor="importance-noise">Importance:</label>
+        <label className="importance-label" htmlFor="importance-noise">
+          Importance:
+        </label>
         <select
           id="importance-noise"
           value={formData.importance.noise || "irrelevant"}
@@ -121,17 +133,20 @@ const IEQSection = ({ formData, onChange, onImportanceChange }) => {
       </div>
       <div className="form-group">
         <label htmlFor="lighting">
-          Lighting Comfort:
-          <Tooltip text="Measure of the indoor lighting levels, indicating visual comfort." />
+          Visual Comfort:
+          <Tooltip text="Visual comfort measures the percentage of time that indoor illumination levels are above 500 lux. This level of lighting is considered sufficient for most indoor activities, helping to reduce eye strain and improve visibility, which enhances comfort and productivity in the space." />
         </label>
         <input
-          type="text"
+          type="number"
           id="lighting"
           value={formData.lighting}
           onChange={(e) => onChange("lighting", e.target.value)}
-          required
+          min="0"
+          max="100"
         />
-        <label htmlFor="importance-lighting">Importance:</label>
+        <label className="importance-label" htmlFor="importance-lighting">
+          Importance:
+        </label>
         <select
           id="importance-lighting"
           value={formData.importance.lighting || "irrelevant"}

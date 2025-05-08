@@ -1,14 +1,21 @@
 import "../App.css";
+import "./MainMenu.css";
 import ProfileBox from "../components/ProfileBox";
 import { useNavigate } from "react-router-dom";
 
 const MainMenu = ({ userName }) => {
   const navigate = useNavigate();
 
-  const goToDetailsPage = (page) => {
+  const goToPage = (page) => {
     navigate(page);
   };
 
+  const signOut = () => {
+    localStorage.removeItem("email");
+    localStorage.removeItem("username");
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   return (
     <div className="outer-panel">
@@ -21,18 +28,32 @@ const MainMenu = ({ userName }) => {
         </div>
         <div className="menu">
           {/* Menu buttons */}
-          <button className="menu-button">New Evaluation</button>
-          <button className="menu-button">My Evaluations</button>
+          <button className="menu-button" onClick={() => goToPage("/process")}>
+            New Evaluation
+          </button>
           <button
             className="menu-button"
-            onClick={() => goToDetailsPage("/details")}
+            onClick={() => goToPage("/evaluations")}
           >
-            Details
+            My Evaluations
           </button>
-          <button className="menu-button">Profile</button>
-          <button className="menu-button">About us</button>
+          {/* <button className="menu-button" onClick={() => goToPage("/details")}>
+            Details
+          </button> */}
+          <button
+            className="menu-button"
+            onClick={() => goToPage("/buildings")}
+          >
+            My Buildings
+          </button>
+          <button className="menu-button" onClick={() => goToPage("/about-us")}>
+            About us
+          </button>
           {/* Add more buttons as needed */}
         </div>
+        <button className="sign-out" onClick={() => signOut()}>
+          Sign out
+        </button>
       </div>
     </div>
   );

@@ -1,0 +1,199 @@
+.process-page {
+  background-color: rgb(236, 242, 243);
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+select,
+input[type="number"] {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+  align-self: flex-start;
+  margin-top: 7px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.form-container {
+  background-color: rgb(190, 226, 233);
+  padding: 20px;
+  border-radius: 5px;
+  padding-right: 30px;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.form-group2 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.form-group2 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group2 label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group2 input,
+.form-group2 select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  flex: 1;
+  font-weight: bold;
+}
+
+.importance-label {
+  flex: 1;
+  font-weight: bold;
+  margin-left: 30px;
+  max-width: 110px;
+}
+
+.form-group input,
+.form-group select {
+  flex: 1;
+  padding: 8px;
+  margin-left: 15px;
+  max-width: 145px;
+}
+
+.form-group select {
+  flex: 1;
+  margin-left: 10px;
+  max-width: 130px;
+}
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tooltip-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-container .info-icon {
+  font-size: 16px;
+  color: #007bff;
+}
+
+.centered-h2 {
+  font-size: 1.7em;
+  font-weight: bold;
+  margin: 0.83em 0;
+  text-align: center;
+}
+.logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  min-height: 100px;
+  background-image: url("../images/emp_logo.png");
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+}

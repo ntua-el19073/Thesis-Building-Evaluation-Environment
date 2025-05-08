@@ -2,6 +2,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import "../LoginPage.css"
 
 export default function GoogleSignInButton() {
   const navigate = useNavigate();

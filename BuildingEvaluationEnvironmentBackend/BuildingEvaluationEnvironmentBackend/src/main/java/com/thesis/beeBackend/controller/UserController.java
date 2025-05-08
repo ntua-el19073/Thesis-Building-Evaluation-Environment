@@ -11,6 +11,6 @@ public interface UserController {
 
     ResponseEntity<String> signup(UserDTO userDTO);
 
-    ResponseEntity<String> testEndpoint();
+    //ResponseEntity<String> testEndpoint();
 
 }

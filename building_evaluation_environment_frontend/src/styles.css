@@ -1,250 +1,241 @@
 .container {
-    min-height: 100vh;
-    padding: 0 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .title a {
-    color: #0070f3;
-    text-decoration: none;
-  }
-  
-  .title a:hover,
-  .title a:focus,
-  .title a:active {
-    text-decoration: underline;
-  }
-  
-  .title {
-    margin: 0 0 1rem;
-    line-height: 1.15;
-    font-size: 3.6rem;
-  }
-  
-  .title {
-    text-align: center;
-  }
-  
-  .title,
-  .description {
-    text-align: center;
-  }
-  
-  
-  .description {
-    line-height: 1.5;
-    font-size: 1.5rem;
-  }
-  
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0 0 1rem;
+  line-height: 1.15;
+  font-size: 3.6rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 4fr);
+  grid-template-rows: repeat(2, 4fr);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  max-width: 1300px;
+  margin-top: 3rem;
+}
+
+.card {
+  margin: 1rem;
+  flex-basis: 45%;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.panel {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.logo {
+  height: 1em;
+}
+
+.dropzone {
+  font-size: 1.5rem;
+  border: dashed;
+  text-align: center;
+  background-color: #a7cefb;
+  width: 920px;
+  height: 150px;
+
+  border: 2px dashed grey;
+}
+
+.files {
+  width: 920px;
+  height: 150px;
+}
+
+.dropzone::after {
+  content: "You can select a file or drag & drop it here";
+  font-size: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  text-align: center;
+  align-self: center;
+}
+
+.rectangular-button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
   .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 4fr);
-    grid-template-rows: repeat(2, 4fr);
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  
-    max-width: 1300px;
-    margin-top: 3rem;
-  }
-  
-  .card {
-    margin: 1rem;
-    flex-basis: 45%;
-    padding: 1.5rem;
-    text-align: left;
-    color: inherit;
-    text-decoration: none;
-    border: 1px solid #eaeaea;
-    border-radius: 10px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-
-  .panel {
-    margin: 0 0 1rem 0;
-    font-size: 2rem;
-    text-align:center;
-  }
-  
-  .card:hover,
-  .card:focus,
-  .card:active {
-    color: #0070f3;
-    border-color: #0070f3;
-  }
-  
-  .card h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1.5rem;
-  }
-  
-  .card p {
-    margin: 0;
-    font-size: 1.25rem;
-    line-height: 1.5;
-  }
-  
-  .logo {
-    height: 1em;
-  }
-  
-  .dropzone{
-      font-size: 1.5rem;
-      border: dashed;
-      text-align:center;
-      background-color:#a7cefb;
-      width: 920px;
-      height: 150px;
-          
-      
-     border: 2px dashed grey;
-  }
-  
-  .files{
-      width: 920px;
-      height: 150px;
-  }
-  
-  .dropzone::after{
-    content:"You can select a file or drag & drop it here";
-    font-size: 2rem;
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    text-align: center;
-    align-self: center;
-    
-  
-  }
-  
-  .rectangular-button {
-    background-color: blue;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
-  
-  @media (max-width: 600px) {
-    .grid {
-      width: 100%;
-      flex-direction: column;
-    }
-  }
-  
-  
-  
-  
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #FFFFFF;
-  }
-  
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-  }
-  
-  .column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    height: 120px;
-  }
-  
-  .emptyColumn {
-    width: 120px;
-    background-color: #F5F5F5;
-  }
-  
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    height: 100%;
-    font-size: 1.5rem;
-    background-color: #404040;
-    color: #FFFFFF;
-    border: none;
-    outline: none;
-    cursor: pointer;
+    flex-direction: column;
   }
-  
-  .smallButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 80px;
-    font-size: 1.5rem;
-    background-color: #4e4e4e;
-    color: #f4f4f4;
-    border: 2px solid #707070;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .image {
-    width: 100%;
-  }
-  
-  .centeredText {
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  
-  .centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+}
 
-  .buttonsContainer * {
-    text-decoration: none;
-    margin-block: 10px;
-    margin-inline: 30px;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
 
-  .firstDiv {
-    padding-top: 1rem;
-    font-size: 1.2rem;
-    text-align:center;
-  }
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
 
-  .flexBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    display: flex;
-  }
-  
-  .leftAlignedDiv {
-    padding-top: 1rem;
-    font-size: 1.2rem;
-    text-align:left;
-  }
-  
-  .aboutBox {
-    width: 900px;
-    height: 5rem;
-    padding: 1rem;
-    border: 2px solid #333;
-    background-color: #fff;
-    color: #333;
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 120px;
+}
 
-  }
+.emptyColumn {
+  width: 120px;
+  background-color: #f5f5f5;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.5rem;
+  background-color: #404040;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.smallButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 80px;
+  font-size: 1.5rem;
+  background-color: #4e4e4e;
+  color: #f4f4f4;
+  border: 2px solid #707070;
+  outline: none;
+  cursor: pointer;
+}
+
+.image {
+  width: 100%;
+}
+
+.centeredText {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonsContainer * {
+  text-decoration: none;
+  margin-block: 10px;
+  margin-inline: 30px;
+}
+
+.firstDiv {
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.flexBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+}
+
+.leftAlignedDiv {
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.aboutBox {
+  width: 900px;
+  height: 5rem;
+  padding: 1rem;
+  border: 2px solid #333;
+  background-color: #fff;
+  color: #333;
+}

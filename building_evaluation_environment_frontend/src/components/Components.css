@@ -1,0 +1,21 @@
+.footer-container {
+    background-color: rgb(216, 222, 223);
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+  }
+  
+  .university-info {
+    margin-bottom: 10px;
+  }
+  
+  .university-logo {
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .author-info {
+    font-size: 14px;
+    color: #333;
+  }

@@ -1,0 +1,117 @@
+/*Login page css */
+.login-page {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-background {
+  flex: 1;
+  background-image: url("../images/login-background-image3.jpg"); /* Replace 'background-image.jpg' with your image file */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(145, 143, 143); /* Background color for the box */
+}
+
+.login-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 6%;
+  margin-top: 4%;
+}
+
+.login-box {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  width: 250px; /* Adjust width as needed */
+  padding: 20px;
+  background-color: rgb(145, 143, 143); /* Background color for the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+.welcome-box {
+  font-family: "Arial", sans-serif; /* Replace 'Arial' with your desired font */
+  color: rgb(245, 234, 234); /* Set text color to white */
+  align-items: center;
+  font-size: 35px; /* Set font size to 24 pixels */
+  text-align: center; /* Center align text */
+  position: absolute; /* Position absolutely */
+  top: 50%; /* Position 50% from the top */
+  left: 15%; /* Position 50% from the left */
+  transform: translate(-50%, -50%); /* Center horizontally and vertically */
+}
+
+.welcome-text {
+  color: rgb(245, 234, 234); /* Set text color to white */
+}
+
+.signup-form .field {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%; /* Ensure all fields take up the full width of the container */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.signup-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signup-form button:hover {
+  background-color: #0056b3;
+}
+
+.signup-link {
+  margin-top: 20px;
+}
+
+.signup-link button {
+  margin-left: 5px;
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.google-signin {
+  background-color: #4285f4; /* Google blue color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.google-signin:hover {
+  background-color: #357ae8; /* Darken the color on hover */
+}
+
+.signin-button {
+  background-color: #4caf50; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signin-button:hover {
+  background-color: #45a049; /* Darken the color on hover */
+}

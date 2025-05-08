@@ -1,0 +1,174 @@
+.buildings-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(236, 242, 243);
+  width: 100%;
+  width: 100vw;
+  height: 100%;
+  height: 100vh;
+
+  position: relative;
+}
+
+.building-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tab.active {
+  background-color: #ccc;
+}
+
+body,
+html {
+  background-color: rgb(236, 242, 243);
+
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Ensure no horizontal scroll */
+  overflow-y: auto;
+}
+
+/* .data-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.left-column {
+  flex: 1;
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-column img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+} */
+
+.data-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.left-column {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.building-info {
+  font-size: 18px; /* Increase text size */
+}
+
+.right-column {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-column img {
+  width: 200px;
+  height: auto;
+  margin-left: 20px; /* Adjust spacing between text and image */
+}
+
+.add-building-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-building-button:hover {
+  background-color: #0056b3;
+}
+
+.add-building-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form-input {
+  width: 13%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 5px;
+
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+/* .form-input select {
+  appearance: none; /* Removes default dropdown styling for consistency 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+} */
+
+.select-wrapper {
+  position: relative;
+  width: 14%;
+}
+
+/*.select-wrapper::after {
+  content: "▼"; /* Custom arrow 
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Allows clicks to pass through to the select element 
+}
+
+select.form-input {
+  width: 14%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  -webkit-appearance: none; /* Removes default dropdown arrow 
+  -moz-appearance: none;
+  appearance: none;
+} */
+
+.submit-button2 {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-div {
+  text-align: center; /* Center the button horizontally */
+  margin-top: 20px; /* Optional: add some space above the button */
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "../LoginPage.css";
 
 export default function SignUpWindow({ onClose }) {
   const [email, setEmail] = useState("");
@@ -24,15 +25,20 @@ export default function SignUpWindow({ onClose }) {
           password: password,
         }
       );
+      console.error(response);
 
       //Handle successful signup response
-      console.log("Signup successful:", response.data);
-
+      alert(response.data);
       // Close the signup modal
       onClose();
     } catch (error) {
-      // Handle signup error
-      console.error("Signup failed:", error);
+      if (error.response) {
+        // Server responded with a status other than 2xx
+        alert(error.response.data); // Display the error message from the response
+      } else {
+        // No response from the server or other error
+        alert("Signup failed: An unknown error occurred.");
+      }
     }
   };
 
@@ -47,6 +53,7 @@ export default function SignUpWindow({ onClose }) {
       <h2>Sign Up</h2>
       <form>
         <input
+          className="field"
           type="email"
           placeholder="Email"
           value={email}
@@ -54,6 +61,7 @@ export default function SignUpWindow({ onClose }) {
           onKeyDown={(e) => handleKeyDown(e)}
         />
         <input
+          className="field"
           type="text"
           placeholder="Username"
           value={username}
@@ -61,6 +69,7 @@ export default function SignUpWindow({ onClose }) {
           onKeyDown={(e) => handleKeyDown(e)}
         />
         <input
+          className="field"
           type="password"
           placeholder="Password"
           value={password}
